@@ -1,0 +1,14 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: heat_island
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./sql/schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
+      - ./sql/indexes.sql:/docker-entrypoint-initdb.d/2-indexes.sql
+      - ./sql/views.sql:/docker-entrypoint-initdb.d/3-views.sql
