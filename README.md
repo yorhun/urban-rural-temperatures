@@ -1,24 +1,25 @@
 # ETL data pipeline deployed on a micro machine (1 CPU - 1 GB RAM)
 
-[![Visit Dashboard](./imgs/dashboard_screenshot.png)(https://lookerstudio.google.com/reporting/c9e8d7e9-dab1-467e-93ee-116ec058932c)]
+<a href="https://lookerstudio.google.com/reporting/c9e8d7e9-dab1-467e-93ee-116ec058932c">
+  <img src="./imgs/dashboard_screenshot.png" width="840" alt="dashboard screenshot">
+  <br>
+  <strong>Click to visit the interactive dashboard</strong>
+</a>
 
-## <a href="https://lookerstudio.google.com/reporting/c9e8d7e9-dab1-467e-93ee-116ec058932c">Visit running interactive dashboard</a>
+## Features
 
-A cloud-based data pipeline that compares temperature variations between urban and rural locations, implemented as a technical exercise rather than a formal study.
-
-## Dashboard Features
-
-The visualization dashboard provides:
 - Interactive selection of urban-rural location pairs
 - Time period selection
 - Comparative normalized temperature differentials across locations
 - Summary statistics including average urban and rural temperatures
-
+  
 Notes: 
    - Data points are updated daily.
-   - The dashboard is attached to a database and data pipeline that are designed to run within AWS Free Tier limits on a micro EC2 instance, intensive querying of the dashboard may cause connection issues, in such a case, closing and reopening the browser page helps. 
+   - The dashboard is attached to a database and pipeline that are designed to run within AWS Free Tier limits on a micro EC2 instance, intensive querying may cause connection issues, in such a case, closing and reopening the browser page helps.
 
 ## Project Overview
+
+A cloud-based data pipeline that compares temperature variations between urban and rural locations, implemented as a technical exercise rather than a formal study.
 
 - Collects historical weather data from the Open-Meteo API
 - Processes and examines temperature differentials between urban and rural location pairs
