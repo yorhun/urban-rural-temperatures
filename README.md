@@ -1,30 +1,10 @@
-# ETL data pipeline to explore publicly available temperature data
+# ETL data pipeline deployed on a micro machine (1 CPU - 1 GB RAM)
+
+[![Visit Dashboard](./imgs/dashboard_screenshot.png)(https://lookerstudio.google.com/reporting/c9e8d7e9-dab1-467e-93ee-116ec058932c)]
+
+## <a href="https://lookerstudio.google.com/reporting/c9e8d7e9-dab1-467e-93ee-116ec058932c">Visit running interactive dashboard</a>
 
 A cloud-based data pipeline that compares temperature variations between urban and rural locations, implemented as a technical exercise rather than a formal study.
-
-## Project Overview
-
-- Collects historical weather data from the Open-Meteo API
-- Processes and examines temperature differentials between urban and rural location pairs
-- Visualizes results via Looker Studio 
-- Runs on a micro EC2 instance on AWS
-
-## Technologies Used
-
-- **Programming**: Python, SQL
-- **Cloud**: AWS
-- **Database**: PostgreSQL
-- **Version Control**: Git
-- **Containerization**: Docker (for local development)
-- **Visualization**: Looker Studio
-- **Data Source**: Open-Meteo API (historical weather data) - https://open-meteo.com
-
-
-## Dashboard Visualization
-
-This project includes a [Looker Studio Dashboard](https://lookerstudio.google.com/reporting/c9e8d7e9-dab1-467e-93ee-116ec058932c) that visualizes the normalized temperature differentials for various urban - rural location pairs. Data points are updated by a delay of ~48 hours, this is due to a limitation of the queried public API.
-
-![Dashboard Screenshot](./imgs/dashboard_screenshot.png)
 
 ## Dashboard Features
 
@@ -34,24 +14,42 @@ The visualization dashboard provides:
 - Comparative normalized temperature differentials across locations
 - Summary statistics including average urban and rural temperatures
 
-Note: This project is designed to run within AWS Free Tier limits on a micro EC2 instance, intensive querying of the dashboard may cause connection issues, in such a case, closing and reopening the browser page helps.
+Notes: 
+   - Data points are updated daily.
+   - The dashboard is attached to a database and data pipeline that are designed to run within AWS Free Tier limits on a micro EC2 instance, intensive querying of the dashboard may cause connection issues, in such a case, closing and reopening the browser page helps. 
 
+## Project Overview
+
+- Collects historical weather data from the Open-Meteo API
+- Processes and examines temperature differentials between urban and rural location pairs
+- Visualizes results via Looker Studio 
+- Runs on a micro machine
+
+## Technologies Used
+
+- **Programming**: Python, SQL
+- **Cloud**: AWS
+- **Database**: PostgreSQL
+- **Version Control**: Git
+- **Containerization**: Docker (for local development, db is constructed directly on host machine on the cloud)
+- **Visualization**: Looker Studio
+- **Data Source**: Open-Meteo API (historical weather data) - https://open-meteo.com
 
 ## Project Structure
 
 ```
 urban-rural-temperatures/
 
-├── python-scripts/           
-│   ├── __init__.py    
-│   ├── daily_pipeline.py  # Main pipeline function
-│   └── src/               # Source code
+├── src/           
+│   └── urban_rural_temp/
 │       ├── __init__.py    
-│       ├── config.py      # Configuration details
-│       ├── extract.py     # Data extraction from Open-Meteo
-│       ├── initial_load.py # Load historical data
-│       ├── load.py        # Database loading functions
-│       └── utils.py       # Utility functions
+│       ├── config.py         # Configuration details
+│       ├── extract.py        # Data extraction from Open-Meteo
+│       ├── initial_load.py   # Load historical data
+│       ├── load.py           # Database loading functions
+│       ├── daily_pipeline.py # Pipeline scheduled to run daily
+│       ├── setup_db.py       # Database setup
+│       └── utils.py          # Utility functions
 ├── db/            
 │   ├── docker-compose.yml # container setup
 │   └── sql/               # SQL definitions
@@ -59,6 +57,7 @@ urban-rural-temperatures/
 │       ├── views.sql      # Materialized views
 │       └── indexes.sql    # Database indexes
 ├── requirements.txt
+├── .gitignore
 └── README.md          # Project documentation
 ```
 
@@ -73,6 +72,8 @@ urban-rural-temperatures/
 3. **Calculations over Rolling Window**: The standard deviation of rural temperature is calculated using a 30-day rolling window 
 
 ## Ideas for the future
+- **Document Deployment Steps**:
+   Improve documentation to include the steps to deploy the pipeline & database on a micro machine
 - **Daily Pattern Analysis**: 
    Examine urban-rural temperature differences by hour of day. Differences typically peak in evening hours when urban surfaces release stored heat
 - **Seasonal Analysis**:

@@ -2,7 +2,7 @@ import psycopg2
 import logging
 import os
 from pathlib import Path
-from src.config import get_db_config, setup_logging, DataConfig
+from config import get_db_config, setup_logging, DataConfig
 
 # Configure logging
 logger = setup_logging("setup_db.log")
