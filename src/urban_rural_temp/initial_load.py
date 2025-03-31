@@ -1,6 +1,7 @@
 import logging
 from datetime import datetime, timedelta
-from extract import fetch_historical_weather, get_urban_rural_pairs
+from extract import fetch_historical_weather
+from config import get_urban_rural_pairs
 from load import get_db_connection, load_locations, load_temperature_data, refresh_materialized_views
 
 # Configure logging

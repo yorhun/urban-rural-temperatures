@@ -21,8 +21,8 @@ import os
 # Add the directory to the Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from config import setup_logging, get_db_config, DataConfig
-from extract import fetch_historical_weather, get_urban_rural_pairs
+from config import setup_logging, get_db_config, DataConfig, get_urban_rural_pairs
+from extract import fetch_historical_weather
 from load import get_db_connection, load_locations, load_temperature_data, refresh_materialized_views
 
 # Configure logging for both local and Lambda environments

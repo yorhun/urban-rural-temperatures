@@ -132,39 +132,6 @@ def fetch_historical_weather(latitude, longitude, start_date, end_date):
     except Exception as e:
         logger.error(f"Unexpected error in fetch_historical_weather: {e}")
         raise
-    
-def get_urban_rural_pairs():
-    """
-    Define urban-rural location pairs for analysis
-    
-    Returns:
-        list: List of location pairs, each containing 
-              [urban_name, urban_lat, urban_lon, rural_name, rural_lat, rural_lon]
-    """
-    return [
-        # Format: [urban_name, urban_lat, urban_lon, rural_name, rural_lat, rural_lon]
-        ["Phoenix", 33.4484, -112.0740, "Buckeye", 33.3705, -112.5838], # commenting others for initial test
-        # ["Madrid", 40.4168, -3.7038, "Guadalix de la Sierra", 40.7838, -3.6901],
-        # ["Melbourne", -37.8136, 144.9631, "Wandin North", -37.7789, 145.4178],
-        # ["Seoul", 37.5665, 126.9780, "Namyangju", 37.6360, 127.2143],
-        # ["Atlanta", 33.7490, -84.3880, "Powder Springs", 33.8595, -84.6836],
-        # ["Chicago", 41.8781, -87.6298, "Yorkville", 41.6400, -88.4476],
-        # ["Beijing", 39.9042, 116.4074, "Huairou", 40.3333, 116.6333],
-        # ["Cairo", 30.0444, 31.2357, "El Saff", 29.5700, 31.2800],
-        # ["Mexico City", 19.4326, -99.1332, "Amecameca", 19.1238, -98.7724],
-        # ["Berlin", 52.5200, 13.4050, "Nauen", 52.6080, 12.8790],
-        # ["Denver", 39.7392, -104.9903, "Elizabeth", 39.3594, -104.5972],
-        # ["Singapore", 1.3521, 103.8198, "Johor Bahru", 1.4927, 103.7414],
-        # ["Stockholm", 59.3293, 18.0686, "Vaxholm", 59.4012, 18.3290],
-        # ["Montreal", 45.5017, -73.5673, "Saint-Jean-Baptiste", 45.5167, -73.1167],
-        # ["Portland", 45.5152, -122.6784, "Estacada", 45.2901, -122.3348],
-        # ["Johannesburg", -26.2041, 28.0473, "Magaliesburg", -25.9894, 27.5419],
-        # ["Milan", 45.4642, 9.1900, "Abbiategrasso", 45.3989, 8.9189],
-        # ["Delhi", 28.6139, 77.2090, "Manesar", 28.3673, 76.9384],
-        # ["Paris", 48.8566, 2.3522, "Dammartin-en-Goële", 49.0667, 2.6833],
-        # ["Brisbane", -27.4698, 153.0251, "Dayboro", -27.1961, 152.8197]
-    ]
-
 
 
 if __name__ == "__main__":
