@@ -15,7 +15,7 @@
   
 Notes: 
    - Data points are updated daily.
-   - The dashboard is attached to a database and pipeline that are designed to run within AWS Free Tier limits on a micro EC2 instance, intensive querying may cause connection issues, in such a case, closing and reopening the browser page helps.
+   - The dashboard is attached to a pipeline that is designed to run within AWS Free Tier limits on a micro EC2 instance, intensive querying may cause connection issues, in such a case, closing and reopening the browser page helps.
 
 ## Project Overview
 
@@ -32,7 +32,7 @@ A cloud-based data pipeline that compares temperature variations between urban a
 - **Cloud**: AWS
 - **Database**: PostgreSQL
 - **Version Control**: Git
-- **Containerization**: Docker (for local development, db is constructed directly on host machine on the cloud)
+- **Containerization**: Docker (only used for local development to construct a test database)
 - **Visualization**: Looker Studio
 - **Data Source**: Open-Meteo API (historical weather data) - https://open-meteo.com
 
@@ -74,8 +74,8 @@ urban-rural-temperatures/
 
 ## Ideas for the future
 - **Document Deployment Steps**:
-   Improve documentation to include the steps to deploy the pipeline & database on a micro machine
+   Document the steps needed to deploy the pipeline & database on a micro machine
 - **Daily Pattern Analysis**: 
-   Examine urban-rural temperature differences by hour of day. Differences typically peak in evening hours when urban surfaces release stored heat
+   Examine urban-rural temperature differences by hour of day
 - **Seasonal Analysis**:
    Compare how urban-rural temperature differentials change across seasons
