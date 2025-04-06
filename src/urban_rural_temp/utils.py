@@ -1,33 +1,6 @@
-import os
-import logging
-from datetime import datetime, timedelta
-
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
-logger = logging.getLogger(__name__)
-
-def get_date_ranges(months_back=1):
-    """
-    Generate date ranges for data extraction
-    
-    Args:
-        months_back (int): Number of months back to generate dates for
-        
-    Returns:
-        list: List of [start_date, end_date] pairs
-    """
-    today = datetime.now().date()
-    
-    # End date is yesterday
-    end_date = today - timedelta(days=1)
-    
-    # Start date is X months back
-    start_date = end_date - timedelta(days=30 * months_back)
-    
-    return [start_date, end_date]
+"""
+Utility function(s), may be expanded later 
+"""
 
 def create_partition_if_needed(conn, timestamp):
     """
@@ -67,7 +40,7 @@ def create_partition_if_needed(conn, timestamp):
         
         if not exists:
             # Create the partition if it doesn't exist
-            logger.info(f"Creating new partition {partition_name}")
+            print(f"Creating new partition {partition_name}")
             cursor.execute(f"""
             CREATE TABLE {partition_name} PARTITION OF temperature_data
             FOR VALUES FROM ('{start_date}') TO ('{end_date}')
@@ -76,7 +49,7 @@ def create_partition_if_needed(conn, timestamp):
             
     except Exception as e:
         conn.rollback()
-        logger.error(f"Error creating partition: {e}")
+        print(f"Error creating partition: {e}")
         raise
     finally:
         cursor.close()

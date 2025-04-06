@@ -5,7 +5,8 @@ __pycache__/
 *.so
 .Python
 venv/
-ENV/
+ENV/prod_env.sh
+engines/prod_engine.sh
 *.egg-info/
 
 # OS specific
@@ -21,3 +22,6 @@ Thumbs.db
 # Project specific
 *.log
 .env
+ec2-micromachine-setup
+*looker_studio_query.sql
+*other_views.sql

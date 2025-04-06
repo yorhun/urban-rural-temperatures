@@ -28,7 +28,8 @@ FROM urban_rural_hourly
 GROUP BY date_trunc('day', timestamp), urban_location
 ORDER BY date_trunc('day', timestamp), urban_location;
 
-CREATE MATERIALIZED VIEW IF NOT EXISTS heat_island_intensity_daily AS
+-- The view that is used for the dashboard
+CREATE MATERIALIZED VIEW IF NOT EXISTS normalized_differential_daily AS
 WITH rural_daily AS (
     -- First aggregate rural temperatures to daily level
     SELECT 
@@ -68,54 +69,7 @@ SELECT
     d.urban_location,
     d.avg_temp_diff,
     rs.rolling_std,
-    d.avg_temp_diff / NULLIF(rs.rolling_std, 0) AS heat_island_intensity
+    d.avg_temp_diff / NULLIF(rs.rolling_std, 0) AS normalized_differential
 FROM daily_diff_from_hourly d
 JOIN rural_stats rs ON d.urban_id = rs.urban_pair_id AND d.date = rs.date
 ORDER BY d.date, d.urban_location;
-
--- Hourly Heat Island Intensity view, keep for later, possible use for future hourly analysis
-CREATE MATERIALIZED VIEW IF NOT EXISTS heat_island_intensity_hourly AS
-WITH rural_hourly_stats AS (
-    SELECT 
-        rl.urban_pair_id,
-        r.timestamp,
-        r.temperature,
-        STDDEV(r.temperature) OVER (
-            PARTITION BY rl.urban_pair_id 
-            ORDER BY r.timestamp 
-            ROWS BETWEEN 23 PRECEDING AND CURRENT ROW
-        ) AS rolling_std_24h
-    FROM temperature_data r
-    JOIN locations rl ON r.location_id = rl.location_id
-    WHERE rl.is_urban = FALSE
-)
-SELECT 
-    u.timestamp,
-    ul.name AS urban_location,
-    u.temperature AS urban_temp,
-    r.temperature AS rural_temp,
-    (u.temperature - r.temperature) AS temp_differential,
-    r.rolling_std_24h,
-    (u.temperature - r.temperature) / NULLIF(r.rolling_std_24h, 0) AS hourly_heat_island_intensity
-FROM temperature_data u
-JOIN locations ul ON u.location_id = ul.location_id
-JOIN locations rl ON ul.location_id = rl.urban_pair_id
-JOIN rural_hourly_stats r ON r.urban_pair_id = rl.urban_pair_id 
-                          AND r.timestamp = u.timestamp
-WHERE ul.is_urban = TRUE
-ORDER BY u.timestamp, ul.name;
-
--- For compatibility with existing code, create an alias view
-CREATE MATERIALIZED VIEW IF NOT EXISTS heat_island_intensity AS
-SELECT * FROM heat_island_intensity_daily;
-
--- Time-of-day analysis view, keep for later, possible use for future hourly analysis
-CREATE MATERIALIZED VIEW IF NOT EXISTS time_of_day_pattern AS
-SELECT 
-    extract(hour from timestamp) AS hour_of_day,
-    urban_location,
-    AVG(temp_differential) AS avg_differential,
-    STDDEV(temp_differential) AS std_differential
-FROM urban_rural_hourly
-GROUP BY extract(hour from timestamp), urban_location
-ORDER BY urban_location, hour_of_day;

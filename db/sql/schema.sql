@@ -11,8 +11,6 @@ CREATE TABLE temperature_data (
   location_id INTEGER REFERENCES locations(location_id),
   timestamp TIMESTAMP NOT NULL,
   temperature DECIMAL(5,2) NOT NULL, -- in °C
-  humidity DECIMAL(5,2),
-  pressure DECIMAL(7,2),
   collected_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (location_id, timestamp)  -- Include timestamp in PRIMARY KEY
 ) PARTITION BY RANGE (timestamp);
