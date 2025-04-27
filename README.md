@@ -1,4 +1,4 @@
-# ETL data pipeline deployed on a micro machine (1 CPU - 1 GB RAM)
+# ETL data pipeline deployed on a micro machine
 
 <a href="https://lookerstudio.google.com/reporting/c9e8d7e9-dab1-467e-93ee-116ec058932c">
   <img src="./imgs/dashboard_screenshot.png" width="840" alt="dashboard screenshot">
@@ -29,8 +29,8 @@ A cloud-based data pipeline that compares temperature variations between urban a
 ## Technologies Used
 
 - **Programming**: Python, SQL
-- **Cloud**: AWS
-- **Database**: PostgreSQL
+- **Cloud**: AWS 
+- **Database**: PostgreSQL (edit: ended up moving to RDS based PostgreSQL - still a micro machine.)
 - **Version Control**: Git
 - **Containerization**: Docker (only used for local development to construct a test database)
 - **Visualization**: Looker Studio
