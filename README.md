@@ -3,28 +3,17 @@
 <a href="https://lookerstudio.google.com/reporting/c9e8d7e9-dab1-467e-93ee-116ec058932c">
   <img src="./imgs/dashboard_screenshot.png" width="840" alt="dashboard screenshot">
   <br>
-  <strong>Click to visit the interactive dashboard</strong>
+  <strong>Visit the interactive dashboard</strong>
 </a>
-
-## Features
-
-- Interactive selection of urban-rural location pairs
-- Time period selection
-- Comparative normalized temperature differentials across locations
-- Summary statistics including average urban and rural temperatures
-  
-Notes: 
-   - Data points are updated daily.
-   - The dashboard is attached to a pipeline that is designed to run within AWS Free Tier limits on a micro EC2 instance, intensive querying may cause connection issues, in such a case, closing and reopening the browser page helps.
 
 ## Project Overview
 
-A cloud-based data pipeline that compares temperature variations between urban and rural locations, implemented as a technical exercise rather than a formal study.
+A data pipeline that examines temperature differences between some urban and rural locations that are close to each other. Implemented as a technical exercise.
 
 - Collects historical weather data from the Open-Meteo API
 - Processes and examines temperature differentials between urban and rural location pairs
-- Visualizes results via Looker Studio 
-- Runs on a micro machine
+- Runs on a micro machine on the cloud
+- Visualizes results via Looker Studio, autoupdates daily
 
 ## Technologies Used
 
@@ -35,6 +24,14 @@ A cloud-based data pipeline that compares temperature variations between urban a
 - **Containerization**: Docker (only used for local development to construct a test database)
 - **Visualization**: Looker Studio
 - **Data Source**: Open-Meteo API (historical weather data) - https://open-meteo.com
+  
+## Features
+
+- Interactive selection of urban-rural location pairs
+- Time period selection
+- Comparative normalized temperature differentials across locations
+- Summary statistics including average urban and rural temperatures
+- Data points are updated daily.
 
 ## Project Structure
 
