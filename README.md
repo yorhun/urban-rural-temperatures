@@ -1,27 +1,27 @@
-# ETL data pipeline deployed on a micro machine
+# Data pipeline deployed on a micro machine
 
 <a href="https://lookerstudio.google.com/reporting/c9e8d7e9-dab1-467e-93ee-116ec058932c">
   <img src="./imgs/dashboard_screenshot.png" width="840" alt="dashboard screenshot">
   <br>
-  <strong>Visit the interactive dashboard</strong>
+  <strong>Visit the interactive dashboard by following this link.</strong>
 </a>
 
 ## Project Overview
 
-A data pipeline that examines temperature differences between some urban and rural locations that are close to each other. Implemented as a technical exercise.
+A data pipeline that examines temperature differences between some urban and rural locations that are close to each other. Implemented as a technical exercise. 
 
-- Collects historical weather data from the Open-Meteo API
+- Collects historical weather data from a public API
 - Processes and examines temperature differentials between urban and rural location pairs
 - Runs on a micro machine on the cloud
 - Visualizes results via Looker Studio, autoupdates daily
 
 ## Technologies Used
 
-- **Programming**: Python, SQL
-- **Cloud**: AWS 
-- **Database**: PostgreSQL (edit: ended up moving to RDS based PostgreSQL - still a micro machine.)
+- **Programming**: Python, SQL, Bash
+- **Cloud**: AWS (EC2, RDS)
+- **Database**: PostgreSQL (edit: ended up moving to RDS based PostgreSQL - ETL scripts still run on a micro machine.)
 - **Version Control**: Git
-- **Containerization**: Docker (only used for local development to construct a test database)
+- **Containerization**: Docker (for local development to construct a test database)
 - **Visualization**: Looker Studio
 - **Data Source**: Open-Meteo API (historical weather data) - https://open-meteo.com
   
@@ -29,9 +29,9 @@ A data pipeline that examines temperature differences between some urban and rur
 
 - Interactive selection of urban-rural location pairs
 - Time period selection
-- Comparative normalized temperature differentials across locations
+- Normalized temperature differentials across locations
 - Summary statistics including average urban and rural temperatures
-- Data points are updated daily.
+- Data points autoupdate daily
 
 ## Project Structure
 
@@ -71,7 +71,9 @@ urban-rural-temperatures/
 
 ## Ideas for the future
 - **Document Deployment Steps**:
-   Document the steps needed to deploy the pipeline & database on a micro machine
+   Document the steps needed to deploy the pipeline, database and form connection to dashboard
+- **Make the ETL scripts run serverless**:
+   Glue could be used instead of micro machine
 - **Daily Pattern Analysis**: 
    Examine urban-rural temperature differences by hour of day
 - **Seasonal Analysis**:
