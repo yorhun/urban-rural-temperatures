@@ -72,6 +72,8 @@ urban-rural-temperatures/
 ## Ideas for the future
 - **Document Deployment Steps**:
    Document the steps needed to deploy the pipeline, database and form connection to dashboard
+- **Make location pairs more easily configurable**:
+   Make it easier to configure which urban-rural location pairs are examined
 - **Make the ETL scripts run serverless**:
    Glue could be used instead of micro machine
 - **Daily Pattern Analysis**: 
