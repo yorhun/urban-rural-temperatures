@@ -12,14 +12,14 @@ A data pipeline that examines temperature differences between some urban and rur
 
 - Collects historical weather data from a public API
 - Processes and examines temperature differentials between urban and rural location pairs
-- Runs on a micro machine on the cloud
+- Runs on a micro tier machine on EC2 (AWS)
 - Visualizes results via Looker Studio, autoupdates daily
 
 ## Technologies Used
 
 - **Programming**: Python, SQL, Bash
 - **Cloud**: AWS (EC2, RDS)
-- **Database**: PostgreSQL (edit: ended up moving to RDS based PostgreSQL - ETL scripts still run on a micro machine.)
+- **Database**: PostgreSQL (edit: ended up moving to RDS based PostgreSQL - ETL scripts still run on a micro tier machine on EC2.)
 - **Version Control**: Git
 - **Containerization**: Docker (for local development to construct a test database)
 - **Visualization**: Looker Studio
@@ -70,12 +70,12 @@ urban-rural-temperatures/
 3. **Calculations over Rolling Window**: The standard deviation of rural temperature is calculated using a 30-day rolling window 
 
 ## Ideas for the future
+- **Make daily ETL scripts run serverless**:
+   Lambda could be used instead of micro machine (Lambda can be preferred over Glue because Glue needs additional setup to access public internet like a NAT gateway)
 - **Document Deployment Steps**:
    Document the steps needed to deploy the pipeline, database and form connection to dashboard
 - **Make location pairs more easily configurable**:
    Make it easier to configure which urban-rural location pairs are examined
-- **Make the ETL scripts run serverless**:
-   Glue could be used instead of micro machine
 - **Daily Pattern Analysis**: 
    Examine urban-rural temperature differences by hour of day
 - **Seasonal Analysis**:
