@@ -81,9 +81,9 @@ class SQLConfig:
     """Data processing configuration"""
     
     # File paths
-    SCHEMA_PATH = os.path.join(str(BASE_DIR), "db", "sql", "schema.sql")
-    INDEXES_PATH = os.path.join(str(BASE_DIR), "db", "sql", "indexes.sql")
-    VIEWS_PATH = os.path.join(str(BASE_DIR), "db", "sql", "views.sql")
+    SCHEMA_PATH = os.path.join(str(BASE_DIR), "sql", "schema.sql")
+    INDEXES_PATH = os.path.join(str(BASE_DIR), "sql", "indexes.sql")
+    VIEWS_PATH = os.path.join(str(BASE_DIR), "sql", "views.sql")
 
 
 def get_urban_rural_pairs():
