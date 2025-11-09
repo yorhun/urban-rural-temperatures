@@ -48,12 +48,12 @@ urban-rural-temperatures/
 │       ├── daily_pipeline.py # Pipeline scheduled to run daily
 │       ├── setup_db.py       # Database setup
 │       └── utils.py          # Utility functions
-├── db/            
-│   ├── docker-compose.yml # container setup
-│   └── sql/               # SQL definitions
-│       ├── schema.sql     # Database schema
-│       ├── views.sql      # Materialized views
-│       └── indexes.sql    # Database indexes
+├── docker/            
+│   └── docker-compose.yml # container setup for test database
+├── sql/                   # SQL definitions
+│   ├── schema.sql         # Database schema
+│   ├── views.sql          # Materialized views
+│   └── indexes.sql        # Database indexes
 ├── requirements.txt
 ├── .gitignore
 └── README.md          # Project documentation

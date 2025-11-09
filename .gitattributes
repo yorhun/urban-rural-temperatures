@@ -1,0 +1,15 @@
+# SQL files (any case)
+*.sql linguist-language=SQL
+*.SQL linguist-language=SQL
+*.sql linguist-vendored=false
+*.SQL linguist-vendored=false
+*.sql linguist-detectable=true
+*.SQL linguist-detectable=true
+
+# YAML files
+*.yaml linguist-language=YAML
+*.yaml linguist-vendored=false
+*.yml linguist-language=YAML
+*.yml linguist-vendored=false
+*.yml linguist-detectable=true
+*.yaml linguist-detectable=true
