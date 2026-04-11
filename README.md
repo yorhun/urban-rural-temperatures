@@ -1,25 +1,32 @@
-# Data pipeline deployed on a micro machine
-
+# Data pipeline - with a live dashboard
 <a href="https://lookerstudio.google.com/reporting/c9e8d7e9-dab1-467e-93ee-116ec058932c">
   <img src="./imgs/dashboard_screenshot.png" width="840" alt="dashboard screenshot">
   <br>
-  <strong>Visit the interactive dashboard by following this link.</strong>
 </a>
+
+### [Visit the interactive dashboard by following this link.](https://lookerstudio.google.com/reporting/c9e8d7e9-dab1-467e-93ee-116ec058932c)
 
 ## Project Overview
 
-A data pipeline that examines temperature differences between some urban and rural locations that are close to each other. Implemented as a technical exercise. 
+#### A data/ETL pipeline that examines temperature differences between some urban and rural locations that are close to each other. Inspired by the ["urban heat island"](https://en.wikipedia.org/wiki/Urban_heat_island) concept: 
 
+**[An urban heat island occurs when a city experiences much warmer temperatures than nearby rural areas.](https://science.nasa.gov/kids/earth/what-is-an-urban-heat-island/)**
+
+This is a side project which was implemented as a technical exercise.
+
+What does it do?
 - Collects historical weather data from a public API
 - Processes and examines temperature differentials between urban and rural location pairs
-- Runs on a micro tier machine on EC2 (AWS)
+- Runs on a nano-tier machine on EC2 (AWS)
 - Visualizes results via Looker Studio, autoupdates daily
 
 ## Technologies Used
 
 - **Programming**: Python, SQL, Bash
-- **Cloud**: AWS (EC2, RDS)
-- **Database**: PostgreSQL (edit: ended up moving to RDS based PostgreSQL - ETL scripts still run on a micro tier machine on EC2.)
+- **Cloud**: AWS (pipeline, database) & GCP (dashboard)
+- **ETL Pipeline**: ETL scripts written in Python, pipeline runs on a nano-tier EC2 instance
+- **Scheduled daily pipeline runs**: EventBridge is used to trigger the nano-tier EC2 instance startup/shutdown
+- **Database**: PostgreSQL (edit: moved to RDS based PostgreSQL instead of hosting db on EC2 instance)
 - **Version Control**: Git
 - **Containerization**: Docker (for local development to construct a test database)
 - **Visualization**: Looker Studio
@@ -70,13 +77,11 @@ urban-rural-temperatures/
 3. **Calculations over Rolling Window**: The standard deviation of rural temperature is calculated using a 30-day rolling window 
 
 ## Ideas for the future
-- **Make daily ETL scripts run serverless**:
-   Lambda could be used instead of micro machine (Lambda can be preferred over Glue because Glue needs additional setup to access public internet like a NAT gateway)
-- **Document Deployment Steps**:
-   Document the steps needed to deploy the pipeline, database and form connection to dashboard
 - **Make location pairs more easily configurable**:
-   Make it easier to configure which urban-rural location pairs are examined
+  Make it easier to configure which urban-rural location pairs are examined
 - **Daily Pattern Analysis**: 
-   Examine urban-rural temperature differences by hour of day
+  Examine urban-rural temperature differences by hour of day
 - **Seasonal Analysis**:
-   Compare how urban-rural temperature differentials change across seasons
+  Compare how urban-rural temperature differentials change across seasons
+- **Document Deployment Steps**:
+  Document the steps needed to deploy the pipeline, database and form connection to dashboard
