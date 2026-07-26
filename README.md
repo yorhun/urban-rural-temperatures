@@ -1,10 +1,10 @@
-# Data pipeline - with a live dashboard
-<a href="https://lookerstudio.google.com/reporting/c9e8d7e9-dab1-467e-93ee-116ec058932c">
-  <img src="./imgs/dashboard_screenshot.png" width="840" alt="dashboard screenshot">
+# Data pipeline with a live dashboard
+<a href="https://datastudio.google.com/reporting/c9e8d7e9-dab1-467e-93ee-116ec058932c/page/DUaEF">
+  <img src="./imgs/dashboard-screenshot-2026-07-26.png" width="1080" alt="dashboard screenshot">
   <br>
 </a>
 
-### [Visit the interactive dashboard by following this link.](https://lookerstudio.google.com/reporting/c9e8d7e9-dab1-467e-93ee-116ec058932c)
+### [Visit the interactive dashboard.](https://datastudio.google.com/reporting/c9e8d7e9-dab1-467e-93ee-116ec058932c/page/DUaEF)
 
 ## Project Overview
 
@@ -17,13 +17,12 @@ This is a side project which was implemented as a technical exercise.
 What does it do?
 - Collects historical weather data from a public API
 - Processes and examines temperature differentials between urban and rural location pairs
-- Runs on a nano-tier machine on EC2 (AWS)
 - Visualizes results via Looker Studio, autoupdates daily
 
 ## Technologies Used
 
 - **Programming**: Python, SQL, Bash
-- **Cloud**: AWS (pipeline, database) & GCP (dashboard)
+- **Cloud**: AWS (pipeline - nanotier machine on EC2, database) & GCP (dashboard)
 - **ETL Pipeline**: ETL scripts written in Python, pipeline runs on a nano-tier EC2 instance
 - **Scheduled daily pipeline runs**: EventBridge is used to trigger the nano-tier EC2 instance startup/shutdown
 - **Database**: PostgreSQL (edit: moved to RDS based PostgreSQL instead of hosting db on EC2 instance)
