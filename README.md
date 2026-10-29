@@ -47,7 +47,8 @@ urban-rural-temperatures/
 ├── src/           
 │   └── urban_rural_temp/
 │       ├── __init__.py    
-│       ├── config.py         # Configuration details
+│       ├── config.py         # Configuration and location-pair loader
+│       ├── location_pairs.yaml # Urban-rural locations and coordinates
 │       ├── extract.py        # Data extraction from Open-Meteo
 │       ├── initial_load.py   # Load historical data
 │       ├── load.py           # Database loading functions
@@ -65,6 +66,9 @@ urban-rural-temperatures/
 └── README.md          # Project documentation
 ```
 
+Edit `src/urban_rural_temp/location_pairs.yaml` to add or update locations.
+Each pair has `urban` and `rural` entries, each with a `name`, `latitude`,
+and `longitude`.
 
 ## Analysis
 
@@ -76,8 +80,6 @@ urban-rural-temperatures/
 3. **Calculations over Rolling Window**: The standard deviation of rural temperature is calculated using a 30-day rolling window 
 
 ## Ideas for the future
-- **Make location pairs more easily configurable**:
-  Make it easier to configure which urban-rural location pairs are examined
 - **Daily Pattern Analysis**: 
   Examine urban-rural temperature differences by hour of day
 - **Seasonal Analysis**:

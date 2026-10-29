@@ -1,5 +1,6 @@
 numpy==2.0.2
 pandas==2.2.3
 psycopg2-binary==2.9.9
+PyYAML==6.0.2
 requests==2.32.3
 urllib3==1.26.20
