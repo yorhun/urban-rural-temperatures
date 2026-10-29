@@ -1,0 +1,160 @@
+- urban:
+    name: Phoenix
+    latitude: 33.427063
+    longitude: -112.02719
+  rural:
+    name: Buckeye (AZ, USA)
+    latitude: 33.356766
+    longitude: -112.55556
+- urban:
+    name: Madrid
+    latitude: 40.386642
+    longitude: -3.6760864
+  rural:
+    name: Cotos de Monterrey (SP)
+    latitude: 40.808434
+    longitude: -3.5795593
+- urban:
+    name: Melbourne
+    latitude: -37.785587
+    longitude: 144.93976
+  rural:
+    name: Wandin North (AU)
+    latitude: -37.785587
+    longitude: 145.42169
+- urban:
+    name: Seoul
+    latitude: 37.57469
+    longitude: 126.96
+  rural:
+    name: Namyangju (KR)
+    latitude: 37.64499
+    longitude: 127.249664
+- urban:
+    name: Atlanta
+    latitude: 33.778557
+    longitude: -84.51492
+  rural:
+    name: Powder Springs (GA, USA)
+    latitude: 33.848858
+    longitude: -84.73224
+- urban:
+    name: Chicago
+    latitude: 41.862915
+    longitude: -87.64877
+  rural:
+    name: Yorkville (IL, USA)
+    latitude: 41.65202
+    longitude: -88.43933
+- urban:
+    name: Beijing
+    latitude: 39.89455
+    longitude: 116.35983
+  rural:
+    name: Huairou (CN)
+    latitude: 40.31634
+    longitude: 116.58228
+- urban:
+    name: Cairo
+    latitude: 30.052723
+    longitude: 31.190199
+  rural:
+    name: El Saff (EG)
+    latitude: 29.56063
+    longitude: 31.25
+- urban:
+    name: Mexico City
+    latitude: 19.437609
+    longitude: -99.10715
+  rural:
+    name: Amecameca (MX)
+    latitude: 19.156414
+    longitude: -98.80435
+- urban:
+    name: Berlin
+    latitude: 52.54833
+    longitude: 13.407822
+  rural:
+    name: Nauen (DE)
+    latitude: 52.618626
+    longitude: 12.929104
+- urban:
+    name: Denver
+    latitude: 39.753952
+    longitude: -105.02086
+  rural:
+    name: Elizabeth (CO, USA)
+    latitude: 39.33216
+    longitude: -104.64827
+- urban:
+    name: Stockholm
+    latitude: 59.297012
+    longitude: 18.163265
+  rural:
+    name: Gustavsberg (SE)
+    latitude: 59.36731
+    longitude: 18.40909
+- urban:
+    name: Montreal
+    latitude: 45.51845
+    longitude: -73.61069
+  rural:
+    name: La Vallée-du-Richelieu (CA)
+    latitude: 45.51845
+    longitude: -73.18683
+- urban:
+    name: Portland
+    latitude: 45.51845
+    longitude: -122.63736
+  rural:
+    name: Beavercreek (OR, USA)
+    latitude: 45.307556
+    longitude: -122.484375
+- urban:
+    name: Johannesburg
+    latitude: -26.186293
+    longitude: 28.026318
+  rural:
+    name: Magaliesburg (South Africa)
+    latitude: -25.975395
+    longitude: 27.540985
+- urban:
+    name: Milan
+    latitude: 45.448154
+    longitude: 9.169279
+  rural:
+    name: Abbiategrasso (ITA)
+    latitude: 45.377853
+    longitude: 8.8732395
+- urban:
+    name: Delhi
+    latitude: 28.646748
+    longitude: 77.17218
+  rural:
+    name: Manesar (IN)
+    latitude: 28.365553
+    longitude: 76.92395
+- urban:
+    name: Paris
+    latitude: 48.822495
+    longitude: 2.2881355
+  rural:
+    name: Montge-en-Göele (FR)
+    latitude: 49.03339
+    longitude: 2.7597957
+- urban:
+    name: Brisbane
+    latitude: -27.45167
+    longitude: 153.02014
+  rural:
+    name: King Scrub (AU)
+    latitude: -27.170475
+    longitude: 152.83965
+- urban:
+    name: Sariyer
+    latitude: 41.08963
+    longitude: 29.057144
+  rural:
+    name: Catalca (TR)
+    latitude: 41.159927
+    longitude: 28.454935
